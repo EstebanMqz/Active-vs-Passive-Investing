@@ -1,12 +1,12 @@
 
 """
-# -- --------------------------------------------------------------------------------------------------- -- #
-# -- project: A SHORT DESCRIPTION OF THE PROJECT                                                         -- #
-# -- script: main.py : python script with the main functionality                                         -- #
-# -- author: EstebanMqz                                                                                  -- #
-# -- license: GNU General Public License v3.0                                                            -- #
-# -- repository: https://github.com/EstebanMqz/MS_Lab1_Marquez-Delgado-Esteban                           -- #
-# -- --------------------------------------------------------------------------------------------------- -- #
+# -- ---------------------------------------------------------------------------------------------------- -- #
+# -- project: This project evaluates ETF IShares NAFTRAC Active and Passive Investment defined strategies.-- #
+# -- script: main.py : python script with the main functionality                                          -- #
+# -- author: EstebanMqz                                                                                   -- #
+# -- license: GNU General Public License v3.0                                                             -- #
+# -- repository: https://github.com/EstebanMqz/MS_Lab1_Marquez-Delgado-Esteban                            -- #
+# -- ---------------------------------------------------------------------------------------------------- -- #
 """
 
 import pandas as pd
