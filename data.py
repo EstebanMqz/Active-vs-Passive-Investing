@@ -11,73 +11,48 @@
 from os import listdir
 from os.path import isfile, join
 import pandas as pd
+import pandas_datareader as pdr
 from datetime import datetime
 
 
-def read_files(path):
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+pd.set_option('display.expand_frame_rep', True)
+pd.set_option('display.width', None)
+
+def read_csv(data):
     """
-    Función que extrae los nombres de los archivos de un path SIN SU EXTENSIÓN, para posteriormente leerlos.
+    Function that reads csv files and returns a dataframe of its content.
 
         Parameters
         ----------
-        path: path.abspath:
-            path a los archivos del NAFTRAC
+        data: csv data.
 
         Returns
         -------
-        archivos: list:
-            archivos ordenados cronológicamente
-
-        Debugging
-        ---------
-        path = path.abspath('files/NAFTRAC_holdings')
+        data: pd.DataFrame(data)
     """
-    archivos = [f[:-4] for f in listdir(path) if isfile(join(path, f))]
-    # Ordernar archivos por fecha
-    archivos = sorted(archivos, key=lambda string: datetime.strptime(string[8:], '%d%m%y'))
-    return archivos
+    df = pd.read_csv(data)
+    return df
 
+def yf_adjclose(tickers, start, end):
 
-def data_dict(archivos):
     """
-    Función que lee los archivos de una lista, creando un diccionario con cada DataFramede cada archivo leido.
+    Function that downloads and returns yahoo finance ticker(s) adj. closes.
 
         Parameters
         ----------
-        archivos: list:
-            lista con nombres de archivos
+        tickers: ticker(s) to download as a list.
+        start: datetime.datetime(y,m,d)
+        end: datetime.datetime(y,m,d)
 
         Returns
         -------
-        data_archivos: dict:
-            Diccionario con los archivos ya leídos.
-
-        Debugging
-        ---------
-        archivos = read_files()
+        data: pd.DataFrame(data)
     """
-    # Crear diccionario para almacenar todos los datos
-    data_archivos = {}
-    for i in archivos:
-        # leer archivos ignorando los dos primeros renglones
-        data = pd.read_csv('files/NAFTRAC_holdings/' + i + '.csv', skiprows=2, header=None)
-        # renombrar las columnas
-        data.columns = list(data.iloc[0, :])
-        # Quitar columnas que no sean nan
-        data = data.loc[:, pd.notnull(data.columns)]
-        data = data.iloc[1:-1].reset_index(drop=True, inplace=False)
-        # Quitar las comas en la columna de precios
-        data['Precio'] = [i.replace(',', '') for i in data['Precio']]
-        # Quitar el * de los Ticker
-        data['Ticker'] = [i.replace('*', '') for i in data['Ticker']]
-        # hacer conversiones de tipos de columnas
-        convert_dict = {'Ticker': str, 'Nombre': str, 'Peso (%)': float, 'Precio': float}
-        data = data.astype(convert_dict)
-        # Convertir a decimal la columna de Peso
-        data['Peso (%)'] = data['Peso (%)'] / 100
-        # guardar en diccionario
-        data_archivos[i] = data
-    return data_archivos
+    #Daily Adj. closes df 
+    df = pdr.DataReader(tickers,'yahoo',start,end)["Adj Close"] #Adj. closes download
+    return df
 
 
 

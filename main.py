@@ -9,8 +9,12 @@
 # -- ---------------------------------------------------------------------------------------------------- -- #
 """
 
-import pandas as pd
+import functions as fn
+import visualizations as vs
 import data as dt
+import pandas as pd
+from os import path
+import fire
 
 # -- TEST 1 : 
 # verify that the script is being read

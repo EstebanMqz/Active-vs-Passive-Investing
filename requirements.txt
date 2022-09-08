@@ -13,10 +13,10 @@ jupyter>=1.0.0
 chart_studio>=1.1
 plotly>=4.14
 pandas_datareader>=0.10.0
-tkinter>=8.6.11
-plotly>=8.6.11
+tk>=0.1.0
+plotly
 yahoofinancials>=1.6
 scipy>=1.7.3
-collections>=2.10
 regex>=2022.3.15
 matplotlib>=3.5.1
+fire >=0.4.0
