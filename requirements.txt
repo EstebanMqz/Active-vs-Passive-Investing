@@ -1,8 +1,8 @@
-
+7
 # -- --------------------------------------------------------------------------------------------------- -- #
 # -- project: Passive vs Active Investment               							         -- #
 # -- script: requirements.txt : text file with the required libraries for the project                    -- #
-# -- author: @EstebanMqz                                                                                 -- #
+# -- author: EstebanMqz                                                                                 -- #
 # -- license: GPL-3.0 License                                                                            -- #
 # -- repository:https://github.com/EstebanMqz/MS_Lab1_Marquez-Delgado-Esteban				         -- #
 # -- --------------------------------------------------------------------------------------------------- -- #

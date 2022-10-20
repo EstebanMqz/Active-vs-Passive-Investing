@@ -2,9 +2,9 @@
 # -- ----------------------------------------------------------------------------------------------------  -- #
 # -- project: This project evaluates ETF IShares NAFTRAC Active and Passive Investment defined strategies. -- #
 # -- script: data.py : python script for data collection                                                   -- #
-# -- author: oscaralfonso17                                                                                -- #
+# -- author: EstebanMqz                                                                                    -- #
 # -- license: GPL-3.0 License                                                                              -- #
-# -- repository: https://github.com/oscaralfonso17/myst_if710183_lab1.git                                  -- #
+# -- repository: https://github.com/EstebanMqz/MS_Lab1_Marquez-Delgado-Esteban                             -- #
 # -- ----------------------------------------------------------------------------------------------------  -- #
 """
 
